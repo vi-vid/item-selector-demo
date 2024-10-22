@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'reset-css';
+@import 'font';
+
+body {
+    background: #f3f3f3;
+    font-size: $font-size-default;
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
