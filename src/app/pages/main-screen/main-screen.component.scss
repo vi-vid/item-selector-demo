@@ -1,0 +1,43 @@
+@import 'color';
+@import 'border';
+@import 'spacing';
+
+:host {
+    display: flex;
+    min-height: 100vh;
+    align-items: start;
+    padding-top: $spacing-default;
+    justify-content: center;
+}
+
+main {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-default;
+    background: $color-surface;
+}
+
+.actions {
+    text-align: right;
+}
+
+.reset-button {
+    border: none;
+    color: $color-surface;
+    cursor: pointer;
+    font-weight: 400;
+    font-family: inherit;
+    border-radius: $border-radius-default;
+    padding: $spacing-small $spacing-default;
+    background: $color-primary-600;
+
+    &:hover,
+    &:focus {
+        background: darken($color-primary-600, 10%);
+    }
+
+    &:active {
+        background: darken($color-primary-600, 20%);
+    }
+}

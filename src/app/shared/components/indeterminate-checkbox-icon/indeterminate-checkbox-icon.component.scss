@@ -1,0 +1,19 @@
+@import "color";
+
+:host {
+    display: block;
+}
+
+svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+
+    .selected {
+        fill: $color-primary-600;
+    }
+
+    .unselected {
+        fill: $color-unselected;
+    }
+}

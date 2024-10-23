@@ -1,0 +1,109 @@
+@import 'border';
+@import 'color';
+@import 'font';
+@import 'spacing';
+
+:host {
+    width: 275px;
+    overflow: hidden;
+    display: inline-block;
+    background: $color-surface;
+    border-radius: $border-radius-default;
+    border: $border-width-default solid $color-border;    
+}
+
+.bold {
+    font-weight: $font-weight-bold;
+}
+
+.list {
+    & & {
+        padding-left: $spacing-default;
+    }
+
+    &.ng-animating {
+        overflow: hidden;
+    }
+
+    &-item-content {
+        width: 100%;
+        z-index: 0;
+        border: none;
+        display: flex;
+        cursor: pointer;
+        text-align: left;
+        background: none;
+        gap: $spacing-small;
+        position: relative;
+        align-items: center;
+        padding: $spacing-small $spacing-default;
+        font-family: inherit;
+
+        &:before {
+            content: '';
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+            left: -50vw;
+            right: -50vw;
+            display: block;
+            position: absolute;
+        }
+
+        &:hover,
+        &:focus,
+        &:focus-within {
+            &:before {
+                background: $color-hover;
+            }
+        }
+    }
+
+    &-item-name {
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    &-item-expand {
+        border: none;
+        outline: none;
+        display: block;
+        cursor: pointer;
+        background: none;
+        text-align: center;
+        padding: $spacing-small $spacing-default $spacing-small $spacing-small;
+        margin: $spacing-small * -1 $spacing-default * -1 $spacing-small * -1 $spacing-small * -1;
+
+        svg {
+            display: block;
+            fill: $color-text;
+            transition: transform ease-in-out 128ms;
+        }
+
+        &:focus,
+        &:hover {
+            svg {
+                fill: $color-primary-600;
+            }
+        }
+    }
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.checkbox {
+    display: block;
+    cursor: pointer;
+    margin: $spacing-small * -1 0;
+
+    input {
+        width: 0;
+        height: 0;
+        z-index: -1;
+        position: absolute;
+    }
+}

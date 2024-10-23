@@ -1,1 +1,19 @@
-<app-item-selector></app-item-selector>
+@if (vm(); as vm) {
+    <main>
+        @if (vm.isLoading) {
+            <div>Folders loading...</div>
+        } @else if (vm.error) {
+            <div>{{ vm.error }}</div>
+        } @else {
+            <app-item-selector [formControl]="formControl" [folders]="vm.folders"></app-item-selector>
+
+            <div>
+                Selected item IDs: {{ formControlValue || '∅' }}
+            </div>
+            
+            <div class="actions">
+                <button class="reset-button" type="button" (click)="formControl.reset()">Clear selection</button>
+            </div>
+        }
+    </main>
+}
